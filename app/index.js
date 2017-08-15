@@ -39,6 +39,15 @@ module.exports = class extends Generator {
         props
       )
 
+      const move = (from, to) => {
+        this.fs.move(this.destinationPath(from), this.destinationPath(to))
+      }
+
+      move('babelrc', '.babelrc')
+      move('editorconfig', '.editorconfig')
+      move('gitignore', '.gitignore')
+      move('travis.yml', '.travis.yml')
+
       this.npmInstall()
     })
   }
