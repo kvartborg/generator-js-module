@@ -1,0 +1,45 @@
+const Generator = require('yeoman-generator')
+
+module.exports = class extends Generator {
+
+  constructor (args, opts) {
+    super(args, opts)
+  }
+
+  setup () {
+    return this.prompt([{
+			name: 'name',
+			message: 'What is the module name?',
+			default: this.appname.replace(/ /g, '-')
+		},{
+			name: 'description',
+			message: 'What is the module description?',
+		},{
+			name: 'author',
+			message: 'What is the name of the author?',
+      store: true
+		},{
+			name: 'email',
+			message: 'What is the email of the author?',
+			store: true
+		},{
+			name: 'url',
+			message: 'What is the authors website?',
+			store: true
+		},{
+			name: 'repo',
+			message: 'What is the module repo?',
+		}]).then(props => {
+      this.fs.copyTpl(
+        [
+          `${this.templatePath()}/**`,
+          `${this.templatePath()}/.**`
+        ],
+        this.destinationPath(),
+        props
+      )
+
+      this.npmInstall()
+    })
+  }
+}
