@@ -43,6 +43,7 @@ module.exports = class extends Generator {
         this.fs.move(this.destinationPath(from), this.destinationPath(to))
       }
 
+      move('_package.json', 'package.json')
       move('babelrc', '.babelrc')
       move('editorconfig', '.editorconfig')
       move('gitignore', '.gitignore')
