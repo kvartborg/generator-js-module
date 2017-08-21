@@ -6,7 +6,10 @@
     "app"
   ],
   "scripts": {
-    "test": "exit 0"
+    "test": "npm run lint && jest",
+    "test:watch": "jest --watch",
+    "lint": "standard | snazzy",
+    "lint:fix": "standard --fix | snazzy"
   },
   "keywords": [
     "yeoman-generator",
@@ -27,7 +30,18 @@
     "yeoman-generator": "^1.1.1"
   },
   "devDependencies": {
+    "babel-jest": "^20.0.3",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
+    "jest": "^20.0.4",
     "snazzy": "^7.0.0",
-    "standard": "^10.0.3"
+    "standard": "^10.0.3",
+    "yeoman-assert": "^3.0.0",
+    "yeoman-test": "^1.7.0"
+  },
+  "jest": {
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/app/"
+    ]
   }
 }
