@@ -11,7 +11,7 @@ test('Generator should create expected files', async () => {
       author: 'test author',
       email: 'test email',
       url: 'http://test.url',
-      repo: 'https://githum.com/test/repo'
+      repo: 'https://github.com/test/repo'
     })
 
   assert.file([
@@ -31,6 +31,8 @@ test('Generator should create expected files', async () => {
   assert.fileContent('package.json', /"test author"/)
   assert.fileContent('package.json', /"test email"/)
   assert.fileContent('package.json', /"http:\/\/test.url"/)
-  assert.fileContent('package.json', /"https:\/\/githum.com\/test\/repo"/)
+  assert.fileContent('package.json', /"https:\/\/github.com\/test\/repo"/)
   assert.fileContent('README.md', /test-module/)
+  assert.fileContent('LICENSE', /test author/)
+  assert.fileContent('LICENSE', /<test email>/)
 })
