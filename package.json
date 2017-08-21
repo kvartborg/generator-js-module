@@ -14,6 +14,13 @@
     "module",
     "esnext"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kvartborg/generator-js-module.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kvartborg/generator-js-module/issues"
+  },
   "author": "Frederik Kvartborg Albertsen",
   "license": "MIT",
   "dependencies": {
